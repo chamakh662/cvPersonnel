@@ -13,7 +13,7 @@ function Contact() {
         <li>
           {/* Remplacez par le lien de votre profil GitHub */}
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            GitHub
+            chamakh662
           </a>
         </li>
 
