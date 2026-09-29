@@ -1,0 +1,12 @@
+/* Styles globaux minimaux.
+   Le fichier Vite par défaut centrait tout le texte et limitait la largeur
+   de la page (#root { width: 1126px; text-align: center; }), ce qui
+   perturbait la mise en page. */
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-height: 100vh;
+}

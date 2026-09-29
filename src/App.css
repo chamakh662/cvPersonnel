@@ -1,0 +1,224 @@
+:root {
+  --fond-page: #eef0f3;
+  --bleu: #1f3a4d;
+  --texte: #1f2937;
+  --texte-doux: #5b6573;
+  --trait: #dfe3e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fond-page);
+  color: var(--texte);
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== Feuille de CV ===== */
+
+.cv {
+  max-width: 980px;
+  margin: 40px auto;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Hero (en-tête) ===== */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 36px 44px;
+  background: var(--bleu);
+  color: #fff;
+}
+
+.photo {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.6rem;
+  line-height: 1.1;
+}
+
+.titre {
+  margin: 8px 0 0;
+  font-size: 1.15rem;
+  opacity: 0.85;
+}
+
+/* ===== Deux colonnes sous l'en-tête ===== */
+
+.cv-body {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+}
+
+.cv-side {
+  padding: 36px 28px;
+  background: #f5f7f9;
+  border-right: 1px solid var(--trait);
+}
+
+.cv-main {
+  padding: 36px 44px;
+}
+
+/* ===== Blocs (chaque section) ===== */
+
+.bloc {
+  margin-bottom: 28px;
+}
+
+.bloc h2 {
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  font-size: 1.1rem;
+  color: var(--bleu);
+  border-bottom: 2px solid var(--trait);
+}
+
+.bloc p {
+  margin: 0;
+}
+
+/* Listes (compétences, contacts) */
+.liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.liste li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.liste a {
+  color: var(--bleu);
+  text-decoration: none;
+  border-bottom: 1px solid var(--trait);
+}
+
+.liste a:hover {
+  border-bottom-color: var(--bleu);
+}
+
+/* Éléments (formation, projets) */
+.item {
+  margin-bottom: 16px;
+}
+
+.item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.item p {
+  margin-top: 2px;
+}
+
+.date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+
+.technos {
+  font-size: 0.85rem;
+  color: var(--texte-doux);
+}
+
+/* ===== Bouton PDF ===== */
+
+.print {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background: var(--bleu);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.print:hover {
+  background: #2d5069;
+}
+
+a:focus-visible,
+.print:focus-visible {
+  outline: 2px solid #f0b429;
+  outline-offset: 3px;
+}
+
+/* ===== Téléphone ===== */
+
+@media (max-width: 760px) {
+  .cv {
+    margin: 0;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .cv-body {
+    grid-template-columns: 1fr;
+  }
+
+  /* Le contenu principal passe avant la colonne de gauche */
+  .cv-main {
+    order: -1;
+    padding: 28px 20px 8px;
+  }
+
+  .cv-side {
+    padding: 8px 20px 28px;
+    border-right: none;
+    background: #fff;
+  }
+}
+
+/* ===== Impression / PDF ===== */
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .cv {
+    margin: 0;
+    max-width: none;
+    box-shadow: none;
+  }
+
+  .hero,
+  .cv-side {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print {
+    display: none;
+  }
+}
